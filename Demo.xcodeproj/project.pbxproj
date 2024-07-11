@@ -60,7 +60,7 @@
 		C50C898F2C3F6D2E00E302C2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C50C899B2C3F758000E302C2 /* SwiftPython.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftPython.entitlements; sourceTree = "<group>"; };
 		C50C899F2C3F847C00E302C2 /* download.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = download.py; sourceTree = "<group>"; };
-		C5CA164D2C34D454000A33BA /* C++ConceptDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C++ConceptDemo"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5CA164D2C34D454000A33BA /* C++Concept */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C++Concept"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CA164F2C34D454000A33BA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C5CA16642C3634BB000A33BA /* SwiftDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CA16662C3634BB000A33BA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		C5CA16142C34CFEE000A33BA = {
 			isa = PBXGroup;
 			children = (
-				C5CA164E2C34D454000A33BA /* C++ConceptDemo */,
+				C5CA164E2C34D454000A33BA /* C++Concept */,
 				C5CA16652C3634BB000A33BA /* SwiftDemo */,
 				C50C89772C3E349E00E302C2 /* C++Any */,
 				C50C898E2C3F6D2E00E302C2 /* SwiftPython */,
@@ -139,7 +139,7 @@
 		C5CA16202C34D063000A33BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5CA164D2C34D454000A33BA /* C++ConceptDemo */,
+				C5CA164D2C34D454000A33BA /* C++Concept */,
 				C5CA16642C3634BB000A33BA /* SwiftDemo */,
 				C50C89762C3E349E00E302C2 /* C++Any */,
 				C50C898D2C3F6D2E00E302C2 /* SwiftPython */,
@@ -147,12 +147,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5CA164E2C34D454000A33BA /* C++ConceptDemo */ = {
+		C5CA164E2C34D454000A33BA /* C++Concept */ = {
 			isa = PBXGroup;
 			children = (
 				C5CA164F2C34D454000A33BA /* main.cpp */,
 			);
-			path = "C++ConceptDemo";
+			path = "C++Concept";
 			sourceTree = "<group>";
 		};
 		C5CA16652C3634BB000A33BA /* SwiftDemo */ = {
@@ -203,9 +203,9 @@
 			productReference = C50C898D2C3F6D2E00E302C2 /* SwiftPython */;
 			productType = "com.apple.product-type.tool";
 		};
-		C5CA164C2C34D454000A33BA /* C++ConceptDemo */ = {
+		C5CA164C2C34D454000A33BA /* C++Concept */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5CA16512C34D454000A33BA /* Build configuration list for PBXNativeTarget "C++ConceptDemo" */;
+			buildConfigurationList = C5CA16512C34D454000A33BA /* Build configuration list for PBXNativeTarget "C++Concept" */;
 			buildPhases = (
 				C5CA16492C34D454000A33BA /* Sources */,
 				C5CA164A2C34D454000A33BA /* Frameworks */,
@@ -215,9 +215,9 @@
 			);
 			dependencies = (
 			);
-			name = "C++ConceptDemo";
+			name = "C++Concept";
 			productName = "C++ConceptDemo";
-			productReference = C5CA164D2C34D454000A33BA /* C++ConceptDemo */;
+			productReference = C5CA164D2C34D454000A33BA /* C++Concept */;
 			productType = "com.apple.product-type.tool";
 		};
 		C5CA16632C3634BB000A33BA /* SwiftDemo */ = {
@@ -277,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5CA164C2C34D454000A33BA /* C++ConceptDemo */,
+				C5CA164C2C34D454000A33BA /* C++Concept */,
 				C5CA16632C3634BB000A33BA /* SwiftDemo */,
 				C50C89752C3E349E00E302C2 /* C++Any */,
 				C50C898C2C3F6D2E00E302C2 /* SwiftPython */,
@@ -853,7 +853,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5CA16512C34D454000A33BA /* Build configuration list for PBXNativeTarget "C++ConceptDemo" */ = {
+		C5CA16512C34D454000A33BA /* Build configuration list for PBXNativeTarget "C++Concept" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5CA16522C34D454000A33BA /* Debug */,

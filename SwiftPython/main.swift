@@ -28,6 +28,6 @@ import PythonKit
 let sys = Python.import("sys")
 print("Python \(sys.version_info.major).\(sys.version_info.minor)")
 
-sys.path.append("/Users/jingfuli/Documents/FeelStart/ProgramDemo/Demo/SwiftPython/Python")
+sys.path.append("/Users/jingfuli/Documents/FeelStart/Demo/SwiftPython/Python")
 let Download = Python.import("download")
 Download.downloadVideo("https://www.youtube.com/watch?v=zSstXi-j7Qc", "/Users/jingfuli/Downloads/youtube")
