@@ -13,48 +13,52 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let node = Node()
-        node.backgroundColor = .red
-        node.frame = view.bounds
-        view.addSubnode(node)
+        let flowLayout = UICollectionViewFlowLayout()
+
+        let collectionNode = CollectionNode(collectionViewLayout: flowLayout)
+        collectionNode.frame = view.bounds
+        collectionNode.dataSource = self
+        view.addSubnode(collectionNode)
     }
 }
 
 extension ViewController {
 
-    class Node: ASDisplayNode {
+    class CollectionNode: ASCollectionNode {
+    }
+
+}
+
+extension ViewController: ASCollectionDataSource {
+
+}
+
+extension ViewController {
+
+    class CellNode: ASCellNode {
+
+        let imageNode = ASImageNode()
+
+        let nameNode = ASTextNode()
+
+        let descNode = ASTextNode()
+
+        override init() {
+            super.init()
+
+            addSubnode(imageNode)
+            addSubnode(nameNode)
+            addSubnode(descNode)
+        }
 
         override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-            let imageNode = ASImageNode()
+            let layoutV = ASStackLayoutSpec.vertical()
+            layoutV.spacing = 4
+            layoutV.children = [nameNode, descNode]
 
-            let textNode = ASTextNode()
-            textNode.attributedText = NSAttributedString(string: "Hi")
+            let layoutH = ASStackLayoutSpec.horizontal()
 
-            return ASStackLayoutSpec(direction: .vertical,
-                                     spacing: 10,
-                                     justifyContent: .center,
-                                     alignItems: .center,
-                                     children: [imageNode, textNode])
+            return layoutH
         }
     }
-
-}
-
-extension ViewController {
-
-    func example() {
-        let imageNode = ASImageNode()
-        view.addSubnode(imageNode)
-
-        let textNode = ASTextNode()
-        textNode.attributedText = NSAttributedString(string: "Hi")
-        textNode.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
-        imageNode.addSubnode(textNode)
-
-        DispatchQueue.global().async {
-            imageNode.frame = CGRect(x: 40, y: 100, width: 200, height: 200)
-            imageNode.image = UIImage(named: "cute_girl")
-        }
-    }
-
 }
