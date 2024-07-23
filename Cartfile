@@ -1,0 +1,7 @@
+# brew install carthage
+# Cartfile in same directory where your .xcodeproj or .xcworkspace is
+# carthage update --use-xcframeworks --platform iOS
+# Drag the built .xcframework bundles from Carthage/Build into the "Frameworks and Libraries" section of your application’s Xcode project.
+# If you are using Carthage for an application, select "Embed & Sign", otherwise "Do Not Embed".
+
+github "TextureGroup/Texture" == 3.2.0
