@@ -1,6 +1,15 @@
 {
-  "originHash" : "c37ae0f7f3518db2d2851f1d654d53a0ab68ac4d501b348e23b297e327290a1c",
+  "originHash" : "052d3a4022da7283cba14775c1280e4a803f7668cec527806ba354a4d2d8e419",
   "pins" : [
+    {
+      "identity" : "jxpagingview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pujiaxin33/JXPagingView.git",
+      "state" : {
+        "revision" : "a55dd07adfa9729677e2287943af5aa40f5df31f",
+        "version" : "2.1.3"
+      }
+    },
     {
       "identity" : "pythonkit",
       "kind" : "remoteSourceControl",
