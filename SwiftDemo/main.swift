@@ -56,3 +56,5 @@ struct MemberLookup {
 var memberLookup = MemberLookup()
 memberLookup.hi = "Hi"
 print(memberLookup.hi)
+
+
