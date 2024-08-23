@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
         tableView.reloadData()
+
+        addArrays()
     }
 
 }
@@ -74,4 +76,5 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         itemList[indexPath.row].handler()
     }
+
 }
