@@ -53,8 +53,58 @@ struct MemberLookup {
     }
 }
 
+class CommitInfo {
+    let hash: Int
+    let userId: Int
+
+    init(hash: Int, userId: Int) {
+        self.hash = hash
+        self.userId = userId
+    }
+}
+
+// https://medium.com/@devslaf/reference-counter-in-swift-98ce26cc2fa1
+let firstCommit = CommitInfo(hash: 0xffee, userId: 1)
+
+@objc class CommitInfoObject: NSObject {
+    let _hash: Int
+    let userId: Int
+
+    init(hash: Int, userId: Int) {
+        self._hash = hash
+        self.userId = userId
+    }
+}
+
+let firstCommitObject = CommitInfo(hash: 0xffee, userId: 1)
+let firstCommitClass = CommitInfo.self
+
 var memberLookup = MemberLookup()
 memberLookup.hi = "Hi"
 print(memberLookup.hi)
+
+class Man {
+    let name: String
+    let age: Int
+
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+
+    static let shared = Man(name: "", age: 18)
+}
+
+struct Woman {
+}
+
+let manS = Man.shared
+
+let m = Man(name: "Link", age: 10)
+let m1 = m
+let m2 = m
+let m3 = m
+let m4 = m
+print("end")
 
 

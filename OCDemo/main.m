@@ -17,11 +17,35 @@
 
 @end
 
+@interface Div : Container
+
+@end
+
+@implementation Div
+
+@end
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSString *str0 = @"Hi";
+        NSString *str0 = @"Hi0000end";
         NSString *str1 = str0.copy;
         NSString *str2 = str0.copy;
+
+        Class cls = NSClassFromString(@"Div");
+
+        typedef struct {
+            Class isa;
+            Class supperclass;
+
+            // cache
+            uintptr_t bucket;
+            uint32_t mask;
+            uint32_t occupied;
+
+            uintptr_t bits;
+        } CLASS;
+
+        CLASS *clsInfo = (__bridge CLASS *)(cls);
 
         Container *c0 = [[Container alloc] init];
         c0.object = str0;
@@ -35,6 +59,8 @@ int main(int argc, const char * argv[]) {
         NSNumber *n0 = @5;
         NSNumber *n1 = @3;
         NSNumber *n2 = @2222222222222222222;
+
+        NSLog(@"%@ %@", NSStringFromClass(Container.class), NSStringFromClass(Container.superclass));
 
         NSLog(@"%@", str0);
         NSLog(@"Hello, World!");
