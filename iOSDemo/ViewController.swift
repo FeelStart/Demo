@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         collectionNode.frame = view.bounds
         collectionNode.dataSource = self
         view.addSubnode(collectionNode)
+
+        sizeBug()
     }
 }
 
@@ -97,4 +99,5 @@ extension ViewController {
         let size2 = layoutManager.usedRect(for: textContainer).size
         print("size2: \(size2)")
     }
+
 }

@@ -110,7 +110,75 @@ class ViewController: UIViewController {
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
         ])
 
+        let text = "【题材星球】是一个属于中小投资者的“全市场产业链数据库”。\n主要分享题材上下游深度梳理，拆解全市场产业链各环节与核心公司，前瞻政策预期，寻找行业信息差。以后你要看什么题材，直接到这个题材星球检索就可以了！\n————————\n提示：请扫描下方海报中的二维码加入。或者可以查看同名公众号：题材星球   。从公众号菜单找到加入本星球的二维码。"
+
+        let labelView = Label()
+        labelView.text = text
+        labelView.backgroundColor = .yellow
+        view.addSubview(labelView)
+        labelView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            labelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            labelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            labelView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+            labelView.heightAnchor.constraint(equalToConstant: 100),
+        ])
+
         test()
+    }
+}
+
+extension ViewController {
+
+    class LayoutManager: NSLayoutManager {
+        override func truncatedGlyphRange(inLineFragmentForGlyphAt glyphIndex: Int) -> NSRange {
+            let range = super.truncatedGlyphRange(inLineFragmentForGlyphAt: glyphIndex)
+            print("truncatedGlyphRange: \(range)")
+            return range
+        }
+    }
+
+
+    class Label: UIView {
+        var text: String = "" {
+            didSet {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = .byWordWrapping
+
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 20),
+                    .paragraphStyle: paragraphStyle,
+                ]
+                textStorage.setAttributedString(NSAttributedString(string: text, attributes: attributes))
+                setNeedsDisplay()
+            }
+        }
+
+        private let layoutManager = LayoutManager()
+        private let textContainer = NSTextContainer(size: CGSize(width: 100, height: 100))
+        private let textStorage = NSTextStorage()
+
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+
+            layoutManager.addTextContainer(textContainer)
+            textStorage.addLayoutManager(layoutManager)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        override var bounds: CGRect {
+            didSet {
+                textContainer.size = bounds.size
+            }
+        }
+
+        override func draw(_ rect: CGRect) {
+            super.draw(rect)
+            layoutManager.drawGlyphs(forGlyphRange: NSRange(location: 0, length: textStorage.length), at: .zero)
+        }
     }
 }
 
@@ -148,5 +216,4 @@ extension ViewController {
         print("size6: \(size6)")
     }
 }
-
 
