@@ -9,6 +9,7 @@
 #include "Sort.h"
 #include "Utils.h"
 
+// C 语言
 int main(int argc, const char * argv[])
 {
     int array[] = { 7, 5, 3, 2, 1, 4 };
