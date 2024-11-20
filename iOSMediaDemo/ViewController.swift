@@ -14,12 +14,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let url = Bundle.resourceBundle.url(forResource: "Chasing Dreams", withExtension: "mp3") {
-            audioPlayer = AudioPlayer(url: url)
-        }
     }
 
     @IBAction func playButtonClicked(_ sender: Any) {
+        if audioPlayer == nil {
+            if let url = Bundle.resourceBundle.url(forResource: "Chasing Dreams", withExtension: "mp3") {
+                audioPlayer = AudioPlayer(url: url)
+            }
+        }
         audioPlayer?.play()
     }
 }

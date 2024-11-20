@@ -1,73 +1,63 @@
 //
-//  AudioPlayer.swift
+//  Util.swift
 //  Demo
 //
-//  Created by Jingfu Li on 2024/11/7.
+//  Created by Jingfu Li on 2024/11/20.
 //
 
-/*
- * [KKSimplePlayer](https://gist.github.com/zonble/635ea00cb125bc50b3f5880e16ba71b7)
- */
-
-import Foundation
 import AudioToolbox
 
-final public class AudioPlayer {
+final class Player {
     var audioFile: AudioFileID?
     var audioQueue: AudioQueueRef?
+    var audioQueueBuffer: [AudioQueueBufferRef] = []
     var audioStreamBasicDescription: AudioStreamBasicDescription = AudioStreamBasicDescription()
-    var audioQueueBuffers = [AudioQueueBufferRef]()
     var packetIndex: Int64 = 0
-    var packetMaxSize: UInt32 = 0
     var packetCount: UInt32 = 0
-    public var isPlaying: Bool = false
-    
+    var packetMaxSize: UInt32 = 0
+    var isPlaying: Bool = false
+
     public init?(url: URL) {
         guard AudioFileOpenURL(url as CFURL, .readPermission, 0, &audioFile) == noErr else {
             return nil
         }
-        
-        // 获取 audioStreamBasicDescription
-        var size = UInt32(MemoryLayout<AudioStreamBasicDescription>.size)
+
+        var size: UInt32 = UInt32(MemoryLayout<AudioStreamBasicDescription>.size)
         guard AudioFileGetProperty(audioFile!, kAudioFilePropertyDataFormat, &size, &audioStreamBasicDescription) == noErr else {
             return nil
         }
-        
-        // 获取 packetCount
+
         size = UInt32(MemoryLayout<UInt64>.size)
         guard AudioFileGetProperty(audioFile!, kAudioFilePropertyAudioDataPacketCount, &size, &packetCount) == noErr else {
             return nil
         }
-        
-        // 获取 maxPacketSize
+
+        // kAudioFilePropertyPacketSizeUpperBound
         size = UInt32(MemoryLayout<UInt32>.size)
         guard AudioFileGetProperty(audioFile!, kAudioFilePropertyMaximumPacketSize, &size, &packetMaxSize) == noErr else {
             return nil
         }
-        
-        // 创建 AudioQueue
-        guard AudioQueueNewOutput(&audioStreamBasicDescription, { userData, audioQueue, buffer in
-            let player = Unmanaged<AudioPlayer>.fromOpaque(userData!).takeUnretainedValue()
+
+        guard AudioQueueNewOutput(&audioStreamBasicDescription, { inUserData, queue, buffer in
+            let player = Unmanaged<Player>.fromOpaque(inUserData!).takeUnretainedValue()
             player.fillBuffer(buffer)
         }, Unmanaged.passUnretained(self).toOpaque(), nil, nil, 0, &audioQueue) == noErr else {
             return nil
         }
-        
-        // 创建 AudioQueueBuffer
-        for _ in 0..<3 {
+
+        for _ in 0...3 {
             var buffer: AudioQueueBufferRef?
             guard AudioQueueAllocateBuffer(audioQueue!, packetMaxSize, &buffer) == noErr else {
                 return nil
             }
-            audioQueueBuffers.append(buffer!)
+            audioQueueBuffer.append(buffer!)
         }
-        
-        // 填充 AudioQueueBuffer
-        for buffer in audioQueueBuffers {
+
+        for buffer in audioQueueBuffer {
             fillBuffer(buffer)
         }
     }
-    
+
     func fillBuffer(_ buffer: AudioQueueBufferRef) {
         var bytes: UInt32 = packetMaxSize
         var packets: UInt32 = 1024
@@ -86,9 +76,17 @@ final public class AudioPlayer {
             isPlaying = false
         }
     }
-    
+
     public func play() {
         isPlaying = true
-        AudioQueueStart(audioQueue!, nil)
+        guard AudioQueueStart(audioQueue!, nil) == noErr else {
+            return
+        }
+    }
+
+    deinit {
+        AudioQueueDispose(audioQueue!, true)
+        AudioFileClose(audioFile!)
     }
 }
+
