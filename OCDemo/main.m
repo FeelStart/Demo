@@ -49,6 +49,7 @@ int main(int argc, const char * argv[]) {
 
         Container *c0 = [[Container alloc] init];
         c0.object = str0;
+        [c0 performSelector:NSSelectorFromString(@"test:")];
 
         Container *c1 = [[Container alloc] init];
         c1.object = str0;
