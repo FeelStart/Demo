@@ -49,7 +49,7 @@ int main(int argc, const char * argv[]) {
 
         Container *c0 = [[Container alloc] init];
         c0.object = str0;
-        [c0 performSelector:NSSelectorFromString(@"test:")];
+        //[c0 performSelector:NSSelectorFromString(@"test:")];
 
         Container *c1 = [[Container alloc] init];
         c1.object = str0;
@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
         c2.object = str0;
 
         NSNumber *n0 = @5;
-        NSNumber *n1 = @3;
+        NSNumber *n1 = @(3UL);
         NSNumber *n2 = @2222222222222222222;
 
         NSLog(@"%@ %@", NSStringFromClass(Container.class), NSStringFromClass(Container.superclass));

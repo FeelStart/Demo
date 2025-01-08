@@ -100,11 +100,19 @@ struct Woman {
 
 let manS = Man.shared
 
-let m = Man(name: "Link", age: 10)
+var m = Man(name: "Link", age: 10)
+let n = m.name
+let a = m.age
 let m1 = m
 let m2 = m
 let m3 = m
 let m4 = m
-print("end")
 
+var m0 = Man(name: "Li", age: 8)
+let p = withUnsafePointer(to: &m0) { pointer in
+    print(pointer)
+}
+
+
+print("end")
 
