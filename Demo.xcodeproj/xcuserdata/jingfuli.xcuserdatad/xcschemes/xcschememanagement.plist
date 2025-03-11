@@ -49,6 +49,16 @@
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
+		<key>GetFilms.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>GettingStarted (Playground).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 		<key>Mac.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -109,7 +119,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>20</integer>
 		</dict>
 		<key>Swift.xcscheme_^#shared#^_</key>
 		<dict>

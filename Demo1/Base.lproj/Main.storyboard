@@ -15,10 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jl6-xe-nVp">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="K0a-Ur-BcL"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Z9Y-qc-Gpe"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jl6-xe-nVp" secondAttribute="bottom" id="1Ff-jS-VVk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jl6-xe-nVp" secondAttribute="trailing" id="Hhh-Ru-Oim"/>
+                            <constraint firstItem="jl6-xe-nVp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M9I-un-vfj"/>
+                            <constraint firstItem="jl6-xe-nVp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YVB-Lh-dQ6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fvp-f7-J6Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="jl6-xe-nVp" id="blh-0p-r9Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
