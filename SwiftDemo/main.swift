@@ -113,6 +113,9 @@ let p = withUnsafePointer(to: &m0) { pointer in
     print(pointer)
 }
 
-
 print("end")
+
+protocol Book {
+    var kind: String { get }
+}
 

@@ -1,6 +1,33 @@
 {
-  "originHash" : "db0e88bc0576f55d55b8b8c94c26cfc43d790755f012e4aad2b3a27dee400554",
+  "originHash" : "20270f27f9675d149eb5bf239dc0655f7f88f57e28f7a96da41d11a64edb37d8",
   "pins" : [
+    {
+      "identity" : "dtcoretext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cocoanetics/DTCoreText.git",
+      "state" : {
+        "revision" : "c0fe041c87c773321785d68a10c63c29a9c763e8",
+        "version" : "1.6.28"
+      }
+    },
+    {
+      "identity" : "dtfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cocoanetics/DTFoundation.git",
+      "state" : {
+        "revision" : "a61be65dd7d5b2cde3acabd13bf320b71f2907a5",
+        "version" : "1.7.19"
+      }
+    },
+    {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero",
+      "state" : {
+        "revision" : "670b81ed3d95f7183bbc009d0ec67c71506557b5",
+        "version" : "1.6.4"
+      }
+    },
     {
       "identity" : "jxpagingview",
       "kind" : "remoteSourceControl",
@@ -17,6 +44,33 @@
       "state" : {
         "branch" : "master",
         "revision" : "6fee7617cfa910fbac7035276e295ba967adbbb4"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core.git",
+      "state" : {
+        "revision" : "cccb3ca9e26ec452a29f2f0d4050d1e38b8a3d43",
+        "version" : "14.14.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "8cb364a6a63695df296f05b53f7c3f3b1dda6af3"
+      }
+    },
+    {
+      "identity" : "reswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReSwift/ReSwift.git",
+      "state" : {
+        "branch" : "6.1.1",
+        "revision" : "cb5c3c02f652420ef413dea41e13ac5a76b6c0fd"
       }
     },
     {

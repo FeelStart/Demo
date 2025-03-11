@@ -60,6 +60,11 @@ int main(int argc, const char * argv[]) {
         NSNumber *n0 = @5;
         NSNumber *n1 = @(3UL);
         NSNumber *n2 = @2222222222222222222;
+        
+        NSString *str = @"3.59";
+        double d = str.doubleValue;
+        NSNumber *n000 = @(d * 100);
+        NSNumber *n00 = @([[NSDecimalNumber alloc] initWithString:str].doubleValue * 100);
 
         NSLog(@"%@ %@", NSStringFromClass(Container.class), NSStringFromClass(Container.superclass));
 
